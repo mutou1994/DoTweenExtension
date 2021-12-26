@@ -170,10 +170,10 @@ public class TweenGroup : MonoBehaviour
     public BaseTween[] GetTweensById(string id)
     {
         return null;
-        /*if(string.IsNullOrEmpty(id))
+        if (string.IsNullOrEmpty(id))
         {
             return m_Tweens.ToArray();
         }
-        return m_Tweens.FindAll(tw => id.Equals(tw.m_Id)).ToArray();*/
+        return m_Tweens.FindAll(tw => id.Equals(tw.m_Id)).ToArray();
     }
 }
