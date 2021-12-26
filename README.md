@@ -1,5 +1,6 @@
 # DoTweenExtension
 ### 关于DoTween的一个可视化编辑扩展组件
+
 ![Alt text](./Img/1.png)
 
 DoTween用来做一些UI动画非常方便，但是调用Tween动画一般通过transform.DoXXX()这样的方式，就不是很方便。记得以前用NGUI的时候有个iTween，通过挂载组件的方式编辑Tween动画，感觉就挺方便的。虽然DoTween也有一个TweenAnimation组件，但是感觉用起来还是不太方便，而且还有一些bug。于是自己封装了一个可视化的编辑扩展组件，如上图。
@@ -11,9 +12,11 @@ GroupId：指定一个自定义的Id，用于如果一个对象上挂在了多�
 PlayOnAwake 与 PlayOnStart：是否在OnAwake和OnStart时自动播放。勾选之后还有一个ResetBeforeAutoPlay参数，标记自动播放的时候是否Reset一下Tween参数。
 一排按钮，Play，Pause，Reset，PlayForwards，PlayBackwards，用于编辑的时候播放，暂停，重置，正播，倒播等预览操作。
 然后有一个AddTween的枚举列表，点开大概是这样：
+
 ![Alt text](./Img/2.png)
 
 可以选择一个需要的动画类型，选一个MoveTween看一下：
+
 ![Alt text](./Img/3.png)
 
 点击左边名字前面的箭头可以把Tween收起或展开。
@@ -21,17 +24,20 @@ PlayOnAwake 与 PlayOnStart：是否在OnAwake和OnStart时自动播放。勾选
 参数：
 ID：一个自定义参数，同样用于有多个Tween的时候用于区分。
 Ease：动画曲线选择，点开可以选择DoTween内置的一些动画曲线，也可以选择一个自定义曲线，会多出一个Curve参数，编辑自定义曲线。
+
 ![Alt text](./Img/4.png)
 
 Loop：是否循环播放，勾选之后，多出两个参数：
 LoopTime：设置播放次数，-1表示一直循环播放
 LoopType：设置循环播放的类型，Restart, yoyo, Incremental三种。
+
 ![Alt text](./Img/5.png)
 
 Duration：一次播放时长，当Tween设置为循环播放时，这个Duration表示的是每次播放时长。
 Delay：延迟播放。
 IgnoewTimeScale：是否不受TimeScale影响。
 UpdateType：动画更新方式，Update或LateUpdate或FixedUpdate或手动。
+
 ![Alt text](./Img/6.png)
 
 Target：选择一个动画对象，根据Tween类型的不同，此处Target的类型也不同，可能为Transform，Image，CanvasGroup等。
@@ -86,6 +92,7 @@ public virtual void ResetTween()
 }
 ```
 看一个MoveTween的示例：
+
 ![Alt text](./Img/7.png)
 
 新增Tween类型的时候也只需继承一下BaseTween，实现CreateTween和ResetTween接口，并把Tween类打上Serializable标签。
